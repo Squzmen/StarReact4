@@ -1,0 +1,190 @@
+/* src/pages/DataManagement.css */
+
+.data-management-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Базовая карточка управления */
+.management-card {
+  background: radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+              radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+              linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  transition: all 0.3s ease;
+}
+
+.management-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+  border-color: #ffd700;
+}
+
+.management-card h3 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.management-card .card-description {
+  color: #d4af37;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.management-card .btn-primary {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  margin-top: auto;
+}
+
+.management-card .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.management-card .help-text {
+  color: rgba(212, 175, 55, 0.6);
+  font-size: 0.9rem;
+  text-align: center;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+/* Карточка статистики */
+.stats-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stats-card:hover::before {
+  opacity: 1;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px 16px;
+  background: rgba(0, 5, 15, 0.8);
+  border-radius: 10px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-item:hover {
+  border-color: #ffd700;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+}
+
+.stat-item:hover::before {
+  opacity: 1;
+}
+
+.stat-value {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #d4af37;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.stat-value.stat-completed {
+  color: #7fff7f;
+  text-shadow: 0 0 10px rgba(127, 255, 127, 0.5);
+}
+
+.stat-value.stat-progress {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.stat-value.stat-not-started {
+  color: #ff9800;
+  text-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #d4af37;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 968px) {
+  .data-management-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .management-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .management-card {
+    padding: 20px;
+  }
+  
+  .management-card h3 {
+    font-size: 1.2rem;
+  }
+}

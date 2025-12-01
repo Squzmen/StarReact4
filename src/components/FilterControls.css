@@ -1,0 +1,43 @@
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  max-width: 650px;
+  width: 100%;
+}
+
+.filter-controls button {
+  padding: 10px 20px;
+  background: radial-gradient(ellipse at top, #d4af37 0%, transparent 60%),
+              radial-gradient(ellipse at bottom, #c0a040 0%, transparent 60%),
+              linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+  color: #00050f;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.filter-controls button:hover {
+  background: radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+              radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+              linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.filter-controls button.active {
+  background: radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+              radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+              linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  color: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.5), inset 0 0 10px rgba(255, 215, 0, 0.2);
+}

@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: 
+    radial-gradient(ellipse at top left, #001a33 0%, transparent 50%),
+    radial-gradient(ellipse at top right, #000d1a 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, #000d1a 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, #001a33 0%, transparent 50%),
+    linear-gradient(to bottom, #000510 0%, #00030a 50%, #000510 100%);
+  min-height: 100vh;
+  color: #d4af37;
+  position: relative;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  text-align: center;
+}

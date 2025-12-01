@@ -1,0 +1,72 @@
+/* src/components/TechnologyNotes.css */
+.technology-notes {
+  background: radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+              radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+              linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.technology-notes h3 {
+  color: #ffd700;
+  margin: 0 0 15px 0;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.technology-notes textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 15px;
+  background: rgba(0, 5, 15, 0.8);
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  color: #d4af37;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.technology-notes textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  background: rgba(0, 5, 15, 0.9);
+}
+
+.technology-notes textarea::placeholder {
+  color: rgba(212, 175, 55, 0.5);
+}
+
+.notes-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.notes-actions .btn-primary {
+  flex: 1;
+  max-width: 250px;
+}
+
+.char-count {
+  color: rgba(212, 175, 55, 0.7);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .notes-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .notes-actions .btn-primary {
+    max-width: 100%;
+  }
+}

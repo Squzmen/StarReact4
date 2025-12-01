@@ -1,0 +1,182 @@
+/* src/components/DataExporter.css */
+.data-exporter {
+  background: radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+              radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+              linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  transition: all 0.3s ease;
+}
+
+.data-exporter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+  border-color: #ffd700;
+}
+
+.data-exporter h3 {
+  margin: 0 0 16px 0;
+  color: #ffd700;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.export-options .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-options label {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.export-options select {
+  padding: 10px;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  background: rgba(0, 5, 15, 0.8);
+  color: #d4af37;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.export-options select:hover:not(:disabled) {
+  border-color: #ffd700;
+}
+
+.export-options select:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.export-options select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  color: #d4af37;
+  font-weight: normal;
+}
+
+/* КАСТОМНЫЙ ЧЕКБОКС */
+.checkbox-group input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  background: rgba(0, 5, 15, 0.8);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-group input[type="checkbox"]:hover {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  border-color: #ffd700;
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000510;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.help-text {
+  color: rgba(212, 175, 55, 0.7);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  display: block;
+  margin-top: 6px;
+}
+
+.export-warning {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffc107;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.export-success {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  color: #4caf50;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.export-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  margin-top: auto;
+}
+
+.export-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#export-help {
+  margin-top: 10px;
+  text-align: center;
+}

@@ -1,0 +1,240 @@
+/* src/components/DeadlineForm.css */
+.deadline-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 5, 15, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.deadline-form-modal {
+  background: rgba(0, 10, 26, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8),
+              0 0 30px rgba(212, 175, 55, 0.2);
+  position: relative;
+  z-index: 2001;
+}
+
+.deadline-form-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Стилизация прокрутки */
+.deadline-form-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.deadline-form-modal::-webkit-scrollbar-track {
+  background: rgba(0, 5, 15, 0.5);
+  border-radius: 5px;
+}
+
+.deadline-form-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37 0%, #ffd700 100%);
+  border-radius: 5px;
+}
+
+.deadline-form-modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd700 0%, #d4af37 100%);
+}
+
+.deadline-form-header {
+  padding: 24px 30px;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.deadline-form-header h2 {
+  margin: 0;
+  color: #ffd700;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.deadline-form-body {
+  padding: 24px 30px;
+}
+
+.deadline-form-group {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.deadline-form-group label {
+  display: block;
+  color: #ffd700;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.deadline-form-group input[type="date"],
+.deadline-form-group input[type="datetime-local"],
+.deadline-form-group select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 5, 15, 0.9);
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  color: #d4af37;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.deadline-form-group input[type="date"]:hover,
+.deadline-form-group input[type="datetime-local"]:hover,
+.deadline-form-group select:hover {
+  border-color: #ffd700;
+}
+
+.deadline-form-group input[type="date"]:focus,
+.deadline-form-group input[type="datetime-local"]:focus,
+.deadline-form-group select:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  background: rgba(0, 10, 20, 0.95);
+}
+
+/* Стилизация календаря */
+.deadline-form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.deadline-form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  filter: invert(0.7) sepia(1) saturate(5) hue-rotate(15deg);
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Для Firefox */
+.deadline-form-group input[type="date"],
+.deadline-form-group input[type="datetime-local"] {
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.deadline-form-group select option {
+  background: #00050f;
+  color: #d4af37;
+  padding: 10px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* КАСТОМНЫЙ ЧЕКБОКС */
+.checkbox-wrapper input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  background: rgba(0, 5, 15, 0.8);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.checkbox-wrapper input[type="checkbox"]:hover {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  border-color: #ffd700;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000510;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.checkbox-wrapper label {
+  margin-bottom: 0;
+  cursor: pointer;
+  color: #d4af37;
+  font-weight: normal;
+  user-select: none;
+}
+
+.deadline-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 30px;
+  border-top: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.deadline-form-footer .btn-primary,
+.deadline-form-footer .btn-secondary {
+  padding: 12px 24px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .deadline-form-modal {
+    max-width: 95%;
+  }
+
+  .deadline-form-header,
+  .deadline-form-body,
+  .deadline-form-footer {
+    padding: 16px 20px;
+  }
+
+  .deadline-form-footer {
+    flex-direction: column;
+  }
+
+  .deadline-form-footer .btn-primary,
+  .deadline-form-footer .btn-secondary {
+    width: 100%;
+  }
+}

@@ -1,0 +1,84 @@
+.progress-bar-component {
+  margin: 15px 0 10px 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.progress-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.progress-label-text {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.progress-percentage-text {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Внешняя обёртка прогресс-бара */
+.progress-outer-bar {
+  width: 100%;
+  background: radial-gradient(ellipse at left, #001a33 0%, transparent 50%),
+              radial-gradient(ellipse at right, #000d1a 0%, transparent 50%),
+              linear-gradient(to right, #00030a 0%, #000510 50%, #00030a 100%);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+/* Внутренняя заполненная часть */
+.progress-inner-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  position: relative;
+}
+
+/* Индикатор пустого прогресса */
+.empty-progress-indicator {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
+}
+
+.progress-inner-fill.animated {
+  transition: width 0.6s ease-in-out;
+}
+
+.progress-inner-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  border-radius: 10px;
+  pointer-events: none;
+}

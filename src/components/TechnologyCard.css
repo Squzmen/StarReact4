@@ -1,0 +1,187 @@
+.technology-card {
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  background: 
+    radial-gradient(ellipse at top left, #001a33 0%, transparent 70%),
+    radial-gradient(ellipse at bottom right, #000d1a 0%, transparent 70%),
+    linear-gradient(135deg, #00050f 0%, #000a1a 50%, #00050f 100%);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #d4af37;
+  position: relative;
+  z-index: 1;
+}
+
+.technology-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.technology-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+  background: 
+    radial-gradient(ellipse at top, #ffd700 0%, transparent 60%),
+    radial-gradient(ellipse at bottom, #d4af37 0%, transparent 60%),
+    linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+  border-color: #ffd700;
+  color: #000510;
+  z-index: 200;
+}
+
+.technology-card h3 {
+  font-size: 1.5em;
+  margin: 0 0 10px 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.card-description {
+  font-size: 0.95em;
+  margin: 0 0 15px 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.technology-card .status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding-top: 10px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.technology-card:hover .status {
+  border-top-color: rgba(0, 5, 16, 0.4);
+}
+
+.technology-card .status span:first-child {
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.technology-card .status span:last-child {
+  font-size: 2em;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.technology-card .status span:last-child:hover {
+  transform: scale(1.2);
+}
+
+/* ЗАМЕТКИ - плавно расширяются ВНУТРИ карточки */
+.card-notes {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0 solid transparent;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease, padding-top 0.5s ease, border-top 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.technology-card:hover .card-notes {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid rgba(0, 5, 16, 0.4);
+}
+
+.card-notes h4 {
+  font-size: 0.9em;
+  margin: 0 0 10px 0;
+  text-align: left;
+  color: inherit;
+  font-weight: bold;
+}
+
+.card-notes-text {
+  font-size: 0.85em;
+  line-height: 1.6;
+  text-align: left;
+  color: inherit;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.card-notes-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card-notes-text::-webkit-scrollbar-track {
+  background: rgba(0, 5, 16, 0.2);
+  border-radius: 3px;
+}
+
+.card-notes-text::-webkit-scrollbar-thumb {
+  background: rgba(0, 5, 16, 0.5);
+  border-radius: 3px;
+}
+
+.card-notes-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 5, 16, 0.7);
+}
+
+.card-notes-empty {
+  font-size: 0.85em;
+  font-style: italic;
+  opacity: 0.7;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+/* Кнопка "Подробнее" */
+.card-detail-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 5, 16, 0.3);
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: 2px solid rgba(0, 5, 16, 0.5);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.card-detail-link:hover {
+  background: rgba(0, 5, 16, 0.5);
+  border-color: rgba(0, 5, 16, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

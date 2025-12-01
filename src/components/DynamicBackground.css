@@ -1,0 +1,142 @@
+.dynamic-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: #000;
+}
+
+.dynamic-background.loading {
+  background: transparent;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 5, 16, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: #ffd700;
+  z-index: 11;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border: 4px solid rgba(212, 175, 55, 0.3);
+  border-top: 4px solid #ffd700;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.background-image-direct {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 5, 16, 0.25);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.background-info {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 5, 16, 0.9);
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 250px;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.background-info:not(.expanded) {
+  max-width: 80px;
+}
+
+.background-info:not(.expanded) .info-content {
+  display: none;
+}
+
+.info-toggle {
+  background: none;
+  border: none;
+  color: #ffd700;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85em;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.info-toggle:hover {
+  color: #d4af37;
+}
+
+.info-content {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+}
+
+.info-content h4 {
+  color: #ffd700;
+  font-size: 0.9em;
+  margin: 0 0 5px 0;
+}
+
+.info-date {
+  font-size: 0.75em;
+  color: #d4af37;
+  margin: 0 0 8px 0;
+  opacity: 0.8;
+}
+
+.info-content p {
+  font-size: 0.75em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .background-info {
+    bottom: 10px;
+    left: 10px;
+    max-width: 200px;
+  }
+}
